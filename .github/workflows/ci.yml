@@ -1,32 +1,8 @@
-name: Tests
-on:
-  push:
-    branches:
-      - 'master'
-  pull_request:
-
-jobs:
-  checks:
-    name: Linting and type checking
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - uses: ./.github/actions/typescript
-
-  unit-tests:
-    name: Unit tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - uses: ./.github/actions/unit
-
-  functional-tests:
-    name: Functional tests
-    # Pin to Ubuntu 22.04 to avoid Playwright installation issues
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - uses: ./.github/actions/functional
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -29,4 +29,4 @@
+     steps:
+       - uses: actions/checkout@v4
+       - uses: ./.github/actions/setup
+-      - uses: ./.github/actions/functional
++      - uses: ./.github/actions/functional
